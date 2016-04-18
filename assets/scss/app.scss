@@ -1,0 +1,115 @@
+html, body{
+  min-height: 100%;
+}
+
+$footer-height: 40px;
+$gutter: 40px;
+body{
+  padding-bottom: $footer-height;
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+}
+
+header{
+  background: #f9f9f9;
+  padding: $gutter 0;
+  text-align: center;
+  img{
+    max-width: 150px;
+    width: auto;
+    height: auto;
+  }
+  p{
+    text-shadow: 1px 1px 2px #fff;
+    margin: $gutter 0 0;
+    font-size: 14px;
+  }
+}
+
+.main{
+  padding: $gutter 0;
+  .error{
+    font-size: 18px;
+    &-title{
+      font-size: 24px;
+      font-weight: bold;
+      color: #999;
+      margin: 0 0 0.5em;
+    }
+    &-description{
+      line-height: 1.5;
+    }
+  }
+}
+
+.captcha-block {
+  max-width: 320px;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.online-block{
+  padding: $gutter / 2;
+  background: yellow;
+  h1{
+    margin: 0 0 $gutter / 2;
+  }
+  .process_is_automatic{
+
+  }
+  p:last-child{
+    text-align: center;
+    color: green;
+  }
+}
+
+.error-block{
+  background: #ffdee7;
+  color: #d05e65;
+  padding: $gutter / 2;
+  h1{
+    margin: 0 0 $gutter / 2;
+    font-weight: bold;
+  }
+  a{
+    font-weight: bold;
+    &:link, &:visited{
+      color: red;
+      text-decoration: underline;
+    }
+    &:hover, &:active{
+      color: red;
+      text-decoration: none;
+    }
+  }
+}
+
+.global{
+  margin-top: $gutter;
+  padding: $gutter 0;
+  border-top: 3px double #ddd;
+  &-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+    text-align: center;
+  }
+  &-desc{
+
+  }
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $footer-height;
+  line-height: $footer-height;
+  background: #2e2e2e;
+  color: #fff;
+  text-align: center;
+  p{
+    font-size: 12px;
+    margin: 0;
+  }
+}

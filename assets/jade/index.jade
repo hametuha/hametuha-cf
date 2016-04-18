@@ -1,0 +1,10 @@
+extends _layout
+
+block vars
+    - var title = '目次';
+
+block content
+    ul.link-list
+        for link in list
+            li
+                a(href="#{link}")=link

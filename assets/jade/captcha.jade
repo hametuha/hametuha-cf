@@ -1,0 +1,13 @@
+extends _layout
+
+block vars
+    - var title = 'エラー';
+
+block content
+    .row
+        .col-xs-12.col-sm-6
+            .error.error-captcha
+                h2.error-title 認証が必要です
+                p.error-description 人間であることを証明するために、reCaptchaを解いてください。
+        .col-xs-12.col-sm-6
+            .captcha-block ::CAPTCHA_BOX::

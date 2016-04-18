@@ -1,0 +1,28 @@
+{
+  "name": "hametuha-cf",
+  "version": "1.0.0",
+  "description": "Collection of error page on CloudFlare",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hametuha/hametuha-cf.git"
+  },
+  "author": "Hametuha INC <info@hametuha.co.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hametuha/hametuha-cf/issues"
+  },
+  "homepage": "https://github.com/hametuha/hametuha-cf#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^2.4",
+    "gulp-jade": "^1.1.0",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "imagemin-pngquant": "^4.0.0"
+  }
+}

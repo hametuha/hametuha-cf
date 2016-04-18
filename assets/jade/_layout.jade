@@ -1,0 +1,44 @@
+doctype html
+html
+    block vars
+    head
+        meta(charset='utf8')
+        title #{title} | 破滅派 | オンライン文芸誌
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+        link(rel='stylesheet' href='./assets/css/app.css')
+        script.
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-1766751-2', 'auto');
+            ga('send', 'pageview');
+    body
+
+        header
+            .container
+                h1
+                    img(src="./assets/img/hametuha-logo.png")
+                p ご迷惑をお掛けして申し訳ございません。
+        .main
+            .container
+                block content
+                .global
+                    h3.global-title このページについて
+                    p.global-desc
+                        | このページは破滅派でエラーが発生したときに表示されます。
+                        | 時間が経っても解決しない場合は気づいていない可能性がありますので、破滅派のtwiterアカウント
+                        a(href='https://twitter.com/hametuha') @hametuha
+                        | までお問い合わせください。
+
+        footer
+            .container
+                p &copy; 2007 Hametuha
+

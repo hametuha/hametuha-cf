@@ -1,0 +1,13 @@
+extends _layout
+
+block vars
+    - var title = 'ブロックされています';
+
+block content
+    .error
+        h1.error-title ブロックされています。
+        p.error-description あなたは、次の理由によりブロックされています。
+        ul
+            li セキュリティソフトにひっかかることをした
+            li ファイヤーウォールでブロックされている
+

@@ -1,0 +1,15 @@
+extends _layout
+
+block vars
+    - var title = 'エラー';
+
+block content
+    .row
+        .col-xs-12.col-sm-6
+            .error.error-online
+                h2.error-title エラーが発生しました
+                p.error-description
+                    | 現在、エラーにより破滅派のサーバが落ちています。
+                    | 復旧作業を行っていますので、いましばらくお待ち下さい。
+        .col-xs-12.col-sm-6
+            .error-block ::CLOUDFLARE_ERROR_500S_BOX::
