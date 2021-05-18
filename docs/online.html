@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf8">
-    <title>ブロックされています | 破滅派 | オンライン文芸誌</title>
+    <title>オフライン | 破滅派 | オンライン文芸誌</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/app.css">
     <script>
@@ -31,14 +31,19 @@
     </header>
     <div class="main">
       <div class="container">
-        <div class="error narrow">
-          <h1 class="error-title text-center">ブロック</h1>
-          <p class="error-description text-center">あなたは、次の理由によりブロックされています。</p>
-          <ol>
-            <li>セキュリティソフトが違反を検知した。</li>
-            <li>ファイヤーウォールでブロックされている。</li>
-            <li>許可されていないIPアドレスからアクセスしている。</li>
-          </ol>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="error error-online">
+              <h2 class="error-title">オフライン表示中</h2>
+              <p class="error-description">
+                破滅派のサーバに接続できませんでした。
+                新しいコンテンツを取得するには&quot;Retry for live version of the site&quot;というリンクをクリックしてください。
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="error-block">::ALWAYS_ONLINE_NO_COPY_BOX::</div>
+          </div>
         </div>
         <div class="global">
           <h3 class="global-title">このページについて</h3>

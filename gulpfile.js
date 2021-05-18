@@ -1,93 +1,93 @@
-var gulp        = require('gulp'),
-    $           = require('gulp-load-plugins')(),
-    fs          = require('fs'),
-    browserSync = require('browser-sync'),
-    pngquant    = require('imagemin-pngquant');
+var gulp = require( 'gulp' ),
+	$ = require( 'gulp-load-plugins' )(),
+	fs = require( 'fs' ),
+	browserSync = require( 'browser-sync' ),
+	pngquant = require( 'imagemin-pngquant' );
 
 
 // Sassのタスク
-gulp.task('sass', function () {
+gulp.task( 'sass', function () {
 
-  return gulp.src(['./assets/scss/**/*.scss'])
-    .pipe($.sass({
-      errLogToConsole: true,
-      outputStyle    : 'compressed',
-      sourceComments : 'normal',
-      includePaths   : [
-        './assets/sass',
-        './node_modules/bootstrap-sass/assets/stylesheets',
-      ]
-    }))
-    .pipe(gulp.dest('./assets/css'));
-});
+	return gulp.src( [ './assets/scss/**/*.scss' ] )
+		.pipe( $.sass( {
+			errLogToConsole: true,
+			outputStyle: 'compressed',
+			sourceComments: 'normal',
+			includePaths: [
+				'./assets/scss',
+				'./node_modules/bootstrap-sass/assets/stylesheets',
+			]
+		} ) )
+		.pipe( gulp.dest( './docs/css' ) );
+} );
 
 
 // Image min
-gulp.task('imagemin', function () {
-  return gulp.src('./assets/img/src/**/*')
-    .pipe($.imagemin({
-      progressive: true,
-      svgoPlugins: [{removeViewBox: false}],
-      use        : [pngquant()]
-    }))
-    .pipe(gulp.dest('./assets/img'));
-});
+gulp.task( 'imagemin', function () {
+	return gulp.src( './assets/img/**/*' )
+		.pipe( $.imagemin( {
+			progressive: true,
+			svgoPlugins: [ { removeViewBox: false } ],
+			use: [ pngquant() ]
+		} ) )
+		.pipe( gulp.dest( './docs/img' ) );
+} );
 
 // Jade
-gulp.task('jade', function () {
-  var list = fs.readdirSync('./assets/jade')
-    .filter(function(file) {
-      return /^[^_].*\.jade$/.test(file);
-    }).map(function(f){
-      return f.replace('.jade', '.html');
-    });
+gulp.task( 'pug', function () {
+	var list = fs.readdirSync( './assets/pug' )
+		.filter( function ( file ) {
+			return /^[^_].*\.pug$/.test( file );
+		} ).map( function ( f ) {
+			return f.replace( '.pug', '.html' );
+		} );
 
-  return gulp.src(['./assets/jade/**/*.jade', '!./assets/jade/**/_*.jade'])
-    .pipe($.jade({
-      pretty: true,
-      locals: {
-        list: list
-      }
-    }))
-    .pipe(gulp.dest('.'));
-});
+	return gulp.src( [ './assets/pug/**/*.pug', '!./assets/pug/**/_*.pug' ] )
+		.pipe( $.pug( {
+			pretty: true,
+			locals: {
+				list: list
+			}
+		} ) )
+		.pipe( gulp.dest( 'docs' ) );
+} );
 
 
 // watch
-gulp.task('watch', function () {
-  // Make SASS
-  gulp.watch('./assets/scss/**/*.scss', ['sass']);
-  // Minify Image
-  gulp.watch('./assets/img/src/**/*', ['imagemin']);
-  // Build Jade
-  gulp.watch('./assets/jade/**/*.jade', ['jade']);
-  // Browser sync
-  gulp.watch([
-    './assets/css/**/*.css',
-    './assets/img/**/*', '!./assets/img/src/**/*',
-    './*.html'
-  ], ['bs-reload']);
-});
+gulp.task( 'watch', function () {
+	// Make SASS
+	gulp.watch( 'assets/scss/**/*.scss', gulp.task( 'sass' ) );
+	// Minify Image
+	gulp.watch( 'assets/img/src/**/*', gulp.task( 'imagemin' ) );
+	// Build Jade
+	gulp.watch( 'assets/pug/**/*.pug', gulp.task( 'pug' ) );
+	// Browser sync
+	gulp.watch( [
+		'docs/css/**/*.css',
+		'docs/img/**/*',
+		'docs/*.html'
+	], gulp.task( 'bs-reload' ) );
+} );
 
 // Reload Browser sync
-gulp.task('bs-reload', function () {
-  browserSync.reload();
-});
+gulp.task( 'bs-reload', function () {
+	browserSync.reload();
+} );
 
 
 // BrowserSync
-gulp.task('browser-sync', function () {
-  browserSync({
-    server     : {
-      baseDir: "./"       //対象ディレクトリ
-      , index: "index.html"      //インデックスファイル
-    },
-    reloadDelay: 500
-  });
-});
+gulp.task( 'browser-sync', function () {
+	browserSync( {
+		server: {
+			baseDir: "./docs",     //対象ディレクトリ
+			index: "index.html" //インデックスファイル
+		},
+		reloadDelay: 500,
+	} );
+} );
 
 // Build
-gulp.task('build', ['sass', 'imagemin', 'jade']);
+gulp.task( 'build', gulp.parallel( [ 'sass', 'imagemin', 'pug' ] ) );
 
 // Default Tasks
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task( 'default', gulp.parallel( 'browser-sync', 'watch' ) );

@@ -84,18 +84,30 @@ header{
 }
 
 .global{
-  margin-top: $gutter;
+  margin: $gutter auto;
   padding: $gutter 0;
   border-top: 3px double #ddd;
+  max-width: 480px;
   &-title{
     font-size: 16px;
     font-weight: bold;
     color: #aaa;
     text-align: center;
+    margin-bottom: $gutter;
   }
   &-desc{
 
   }
+}
+
+div.narrow {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 480px;
+}
+
+div.tweet {
+  margin: 40px auto;
 }
 
 footer{

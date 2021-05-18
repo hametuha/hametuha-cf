@@ -4,7 +4,10 @@
   "description": "Collection of error page on CloudFlare",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":  "gulp default",
+    "gulp": "gulp",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -18,11 +21,11 @@
   "homepage": "https://github.com/hametuha/hametuha-cf#readme",
   "devDependencies": {
     "browser-sync": "^2.11",
-    "gulp": "^3.9.1",
-    "gulp-imagemin": "^2.4",
-    "gulp-jade": "^1.1.0",
-    "gulp-load-plugins": "^1.2.2",
-    "gulp-sass": "^2.2.0",
-    "imagemin-pngquant": "^4.0.0"
+    "gulp": "^4.0",
+    "gulp-imagemin": "^7.1",
+    "gulp-load-plugins": "^2.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.1.0",
+    "imagemin-pngquant": "^9.0"
   }
 }
