@@ -1,0 +1,15 @@
+extends _layout
+
+block vars
+    - var title = 'オフライン';
+
+block content
+    .row
+        .col-xs-12.col-sm-6
+            .error.error-online
+                h2.error-title オフライン表示中
+                p.error-description
+                    | 破滅派のサーバに接続できませんでした。
+                    | 新しいコンテンツを取得するには&quot;Retry for live version of the site&quot;というリンクをクリックしてください。
+        .col-xs-12.col-sm-6
+            .error-block ::ALWAYS_ONLINE_NO_COPY_BOX::
