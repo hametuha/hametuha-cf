@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/hametuha/hametuha-cf#readme",
   "devDependencies": {
-    "browser-sync": "^2.11",
+    "browser-sync": "^2.27",
     "gulp": "^4.0",
     "gulp-imagemin": "^7.1",
     "gulp-load-plugins": "^2.0",
