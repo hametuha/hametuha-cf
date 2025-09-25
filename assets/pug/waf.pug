@@ -4,11 +4,10 @@ block vars
     - var title = 'ブロックされています';
 
 block content
-    .error.narrow
-        h1.error-title.text-center ブロック
-        p.error-description.text-center あなたは、次の理由によりブロックされています。
-        ol
-            li セキュリティソフトが違反を検知した。
-            li ファイヤーウォールでブロックされている。
-            li 許可されていないIPアドレスからアクセスしている。
-
+  .error
+    h2.error-title ブロック中
+    p.error-description あなたは、次の理由によりブロックされています。
+    ol
+      li セキュリティソフトが違反を検知した。
+      li ファイヤーウォールでブロックされている。
+       li 許可されていないIPアドレスからアクセスしている。

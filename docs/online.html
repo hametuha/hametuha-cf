@@ -3,57 +3,51 @@
   <head>
     <meta charset="utf8">
     <title>オフライン | 破滅派 | オンライン文芸誌</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/app.css"><!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GX6ZTNEEW8"></script>
     <script>
-      (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r;
-          i[r] = i[r] || function () {
-                      (i[r].q = i[r].q || []).push(arguments)
-                  }, i[r].l = 1 * new Date();
-          a = s.createElement(o),
-                  m = s.getElementsByTagName(o)[0];
-          a.async = 1;
-          a.src = g;
-          m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-      ga( 'create', 'UA-1766751-2', 'auto');
-      ga( 'set', 'dimension4', 'error' );
-      ga( 'send', 'pageview');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      var config = {
+              link_attribution: true,
+              page_type: "error"
+      };
+      gtag('config', 'G-GX6ZTNEEW8', config );
     </script>
   </head>
   <body>
     <header>
       <div class="container">
-        <h1><img src="./img/hametuha-logo.png"></h1>
+        <h1><img src="./img/hametuha-logo.png" alt="破滅派"></h1>
         <p>ご迷惑をお掛けして申し訳ございません。</p>
       </div>
     </header>
     <div class="main">
       <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <div class="error error-online">
-              <h2 class="error-title">オフライン表示中</h2>
-              <p class="error-description">
-                破滅派のサーバに接続できませんでした。
-                新しいコンテンツを取得するには&quot;Retry for live version of the site&quot;というリンクをクリックしてください。
-              </p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6">
-            <div class="error-block">::ALWAYS_ONLINE_NO_COPY_BOX::</div>
-          </div>
+        <div class="error">
+          <h2 class="error-title">オフライン表示中</h2>
+          <p class="error-description">
+            破滅派のサーバに接続できませんでした。
+            緊急措置として、以前配信したコンテンツをそのまま表示しています。
+            新しいコンテンツを取得するには&quot;Retry for live version of the site&quot;というリンクをクリックしてください。
+          </p>
+          <div class="error-block">::ALWAYS_ONLINE_NO_COPY_BOX::</div>
         </div>
         <div class="global">
           <h3 class="global-title">このページについて</h3>
           <p class="global-desc">
-            このページは破滅派でエラーが発生したときに表示されます。
-            時間が経っても解決しない場合は気づいていない可能性がありますので、破滅派のtwiterアカウント<a href="https://twitter.com/hametuha">@hametuha</a>までお問い合わせください。
+            このページはWebサイト破滅派でエラーが発生したときに表示されます。
+            時間が経っても解決しない場合は気づいていない可能性がありますので、
+            緊急の時はお気軽にお問い合わせください。
           </p>
-          <div class="tweet"><a class="twitter-timeline" href="https://twitter.com/hametuha?ref_src=twsrc%5Etfw">Tweets by hametuha</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
+          <ul class="global-contacts">
+            <li class="global-contacts__item"><a class="global-contacts__link" href="https://hametuha.co.jp/contact" target="_blank" rel="noopener noreferrer">株式会社破滅派</a></li>
+            <li class="global-contacts__item"><a class="global-contacts__link" href="https://x.com/hametuha">X（旧twitter）</a></li>
+            <li class="global-contacts__item"><a class="global-contacts__link" href="https://www.facebook.com/hametuha.inc">facebook</a></li>
+          </ul>
         </div>
       </div>
     </div>

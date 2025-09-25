@@ -1,7 +1,10 @@
-Hametuha Theme for CloudFlare
-=======================
+# Hametuha Theme for CloudFlare
 
-This is a collection of custom HTML page for CloudFlare. See [detailed documentation](https://support.cloudflare.com/hc/en-us/articles/200172706-How-do-I-customize-CloudFlare-error-pages-).
+
+This is a collection of custom HTML page for CloudFlare.
+
+- [Detailed documentation](https://developers.cloudflare.com/rules/custom-errors/)
+- [Error Tokens](https://developers.cloudflare.com/rules/custom-errors/reference/error-tokens/)
 
 ## License
 

@@ -4,12 +4,10 @@ block vars
     - var title = 'エラー';
 
 block content
-    .row
-        .col-xs-12.col-sm-6
-            .error.error-online
-                h2.error-title エラーが発生しました
-                p.error-description
-                    | なんらかの原因で破滅派のサーバに接続することができません。
-                    | 復旧作業を行っていますので、いましばらくお待ち下さい。
-        .col-xs-12.col-sm-6
-            .error-block ::CLOUDFLARE_ERROR_1000S_BOX::
+  .error
+    h2.error-title エラーが発生しました
+    p.error-description
+      | なんらかの原因で破滅派のサーバに接続することができません。
+      | 復旧作業を行っていますので、いましばらくお待ち下さい。
+
+    .error-block ::CLOUDFLARE_ERROR_1000S_BOX::

@@ -1,127 +1,182 @@
 html, body{
-  min-height: 100%;
+	min-height: 100%;
 }
 
 $footer-height: 40px;
 $gutter: 40px;
 body{
-  padding-bottom: $footer-height;
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+	padding-bottom: $footer-height;
+	font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
 }
 
 header{
-  background: #f9f9f9;
-  padding: $gutter 0;
-  text-align: center;
-  img{
-    max-width: 150px;
-    width: auto;
-    height: auto;
-  }
-  p{
-    text-shadow: 1px 1px 2px #fff;
-    margin: $gutter 0 0;
-    font-size: 14px;
-  }
+	background: #f9f9f9;
+	padding: $gutter 0;
+	text-align: center;
+	img{
+		max-width: 150px;
+		width: auto;
+		height: auto;
+	}
+	p{
+		text-shadow: 1px 1px 2px #fff;
+		margin: $gutter 0 0;
+		font-size: 14px;
+	}
 }
 
 .main{
-  padding: $gutter 0;
-  .error{
-    font-size: 18px;
-    &-title{
-      font-size: 24px;
-      font-weight: bold;
-      color: #999;
-      margin: 0 0 0.5em;
-    }
-    &-description{
-      line-height: 1.5;
-    }
-  }
+	padding: $gutter 0;
+	.error{
+		font-size: 18px;
+		max-width: 600px;
+		margin-right: auto;
+		margin-left: auto;
+		&-title{
+			font-size: 24px;
+			font-weight: bold;
+			color: #999;
+			margin: 0 0 1em;
+			text-align: center;
+		}
+		&-description{
+			line-height: 2;
+		}
+	}
 }
 
 .captcha-block {
-  max-width: 320px;
-  margin-right: -10px;
-  margin-left: -10px;
+	margin: $gutter -10px;
+	max-width: 320px;
 }
 
 .online-block{
-  padding: $gutter / 2;
-  background: yellow;
-  h1{
-    margin: 0 0 $gutter / 2;
-  }
-  .process_is_automatic{
+	margin: $gutter 0;
+	padding: $gutter * 0.5;
+	background: rgb(21, 198, 198);
+	h1{
+		margin: 0 0 $gutter * 0.5;
+	}
+	.process_is_automatic{
 
-  }
-  p:last-child{
-    text-align: center;
-    color: green;
-  }
+	}
+	p:last-child{
+		text-align: center;
+		color: green;
+	}
 }
 
 .error-block{
-  background: #ffdee7;
-  color: #d05e65;
-  padding: $gutter / 2;
-  h1{
-    margin: 0 0 $gutter / 2;
-    font-weight: bold;
-  }
-  a{
-    font-weight: bold;
-    &:link, &:visited{
-      color: red;
-      text-decoration: underline;
-    }
-    &:hover, &:active{
-      color: red;
-      text-decoration: none;
-    }
-  }
+	background: #ffdee7;
+	color: #d05e65;
+	margin: $gutter 0;
+	padding: $gutter * 0.5;
+	h1{
+		margin: 0 0 $gutter * 0.5;
+		font-weight: bold;
+	}
+	a{
+		font-weight: bold;
+		&:link, &:visited{
+			color: red;
+			text-decoration: underline;
+		}
+		&:hover, &:active{
+			color: red;
+			text-decoration: none;
+		}
+	}
 }
 
 .global{
-  margin: $gutter auto;
-  padding: $gutter 0;
-  border-top: 3px double #ddd;
-  max-width: 480px;
-  &-title{
-    font-size: 16px;
-    font-weight: bold;
-    color: #aaa;
-    text-align: center;
-    margin-bottom: $gutter;
-  }
-  &-desc{
+	margin: $gutter auto;
+	padding: $gutter 0;
+	border-top: 3px double #ddd;
+	max-width: 480px;
+	font-size: 16px;
+	&-title{
+		font-size: 16px;
+		font-weight: bold;
+		color: #aaa;
+		text-align: center;
+		margin-bottom: $gutter;
+	}
+	&-desc{
+		line-height: 2;
+		margin-bottom: $gutter;
+		text-align: justify;
+		text-justify: inter-ideograph;
+	}
+	&-contacts {
+		margin: $gutter 0;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		@media screen and ( max-width: 767px ){
+			display: block;
+		}
 
-  }
+
+		&__item {
+			list-style: none;
+			display: block;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			@media screen and ( max-width: 767px ){
+				margin-bottom: $gutter * 0.5;
+			}
+		}
+
+		&__link {
+			display: inline-block;
+			padding: 0.25em 0.75em;
+			border: 1px solid currentColor;
+			border-radius: 3px;
+			text-align: center;
+			min-width: 180px;
+			font-size: 14px;
+
+			&:link,
+			&:visited {
+				color: #000;
+				text-decoration: none;
+			}
+
+			&:hover,
+			&:active {
+				color: #fff;
+				background-color: #000;
+				border-color: #000;
+			}
+		}
+	}
 }
 
 div.narrow {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 480px;
 }
 
 div.tweet {
-  margin: 40px auto;
+	margin: 40px auto;
 }
 
 footer{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: $footer-height;
-  line-height: $footer-height;
-  background: #2e2e2e;
-  color: #fff;
-  text-align: center;
-  p{
-    font-size: 12px;
-    margin: 0;
-  }
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: $footer-height;
+	line-height: $footer-height;
+	background: #2e2e2e;
+	color: #fff;
+	text-align: center;
+	p{
+		font-size: 12px;
+		margin: 0;
+	}
 }

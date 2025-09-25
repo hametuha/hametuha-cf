@@ -1,22 +1,61 @@
-var gulp = require( 'gulp' ),
-	$ = require( 'gulp-load-plugins' )(),
-	fs = require( 'fs' ),
-	browserSync = require( 'browser-sync' ),
-	pngquant = require( 'imagemin-pngquant' );
+const gulp = require( 'gulp' );
+const $ = require( 'gulp-load-plugins' )();
+const fs = require( 'fs' );
+const browserSync = require( 'browser-sync' );
+const pngquant = require( 'imagemin-pngquant' );
+const sass = require( 'sass' );
+const { Transform } = require( 'stream' );
 
+/**
+ * Gulp transform that compiles Sass using the modern Dart Sass JS API.
+ *
+ * @param {Object} options
+ * @returns {Transform}
+ */
+function compileSass( options = {} ) {
+	const {
+		includePaths = [],
+		outputStyle = 'expanded',
+	} = options;
+
+	const style = outputStyle === 'compressed' ? 'compressed' : 'expanded';
+
+	return new Transform( {
+		objectMode: true,
+		transform( file, _, callback ) {
+			if ( file.isNull() ) {
+				return callback( null, file );
+			}
+
+			if ( file.isStream() ) {
+				return callback( new Error( 'Streaming Sass sources is not supported.' ) );
+			}
+
+			sass.compileAsync( file.path, {
+				style,
+				loadPaths: includePaths,
+			} ).then( ( result ) => {
+				file.contents = Buffer.from( result.css );
+				file.path = file.path.replace( /\.(s[ac]ss)$/i, '.css' );
+				callback( null, file );
+			} ).catch( ( error ) => {
+				error.message = `Sass error in ${ file.relative }\n${ error.message }`;
+				callback( error );
+			} );
+		},
+	} );
+}
 
 // Sassのタスク
 gulp.task( 'sass', function () {
 
 	return gulp.src( [ './assets/scss/**/*.scss' ] )
-		.pipe( $.sass( {
-			errLogToConsole: true,
+		.pipe( compileSass( {
 			outputStyle: 'compressed',
-			sourceComments: 'normal',
 			includePaths: [
 				'./assets/scss',
 				'./node_modules/bootstrap-sass/assets/stylesheets',
-			]
+			],
 		} ) )
 		.pipe( gulp.dest( './docs/css' ) );
 } );
