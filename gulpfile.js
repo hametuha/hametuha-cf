@@ -2,7 +2,6 @@ const gulp = require( 'gulp' );
 const $ = require( 'gulp-load-plugins' )();
 const fs = require( 'fs' );
 const browserSync = require( 'browser-sync' );
-const pngquant = require( 'imagemin-pngquant' );
 const sass = require( 'sass' );
 const { Transform } = require( 'stream' );
 
@@ -61,14 +60,11 @@ gulp.task( 'sass', function () {
 } );
 
 
-// Image min
-gulp.task( 'imagemin', function () {
+// Images: commit already-compressed files to assets/img; the build only copies them.
+// (Per-build compression with gulp-imagemin was dropped: its native binaries no longer
+// work on recent Node / Apple Silicon. Same policy as hametuha/hametuha#434.)
+gulp.task( 'images', function () {
 	return gulp.src( './assets/img/**/*' )
-		.pipe( $.imagemin( {
-			progressive: true,
-			svgoPlugins: [ { removeViewBox: false } ],
-			use: [ pngquant() ]
-		} ) )
 		.pipe( gulp.dest( './docs/img' ) );
 } );
 
@@ -96,8 +92,8 @@ gulp.task( 'pug', function () {
 gulp.task( 'watch', function () {
 	// Make SASS
 	gulp.watch( 'assets/scss/**/*.scss', gulp.task( 'sass' ) );
-	// Minify Image
-	gulp.watch( 'assets/img/src/**/*', gulp.task( 'imagemin' ) );
+	// Copy images
+	gulp.watch( 'assets/img/**/*', gulp.task( 'images' ) );
 	// Build Jade
 	gulp.watch( 'assets/pug/**/*.pug', gulp.task( 'pug' ) );
 	// Browser sync
@@ -126,7 +122,7 @@ gulp.task( 'browser-sync', function () {
 } );
 
 // Build
-gulp.task( 'build', gulp.parallel( [ 'sass', 'imagemin', 'pug' ] ) );
+gulp.task( 'build', gulp.parallel( [ 'sass', 'images', 'pug' ] ) );
 
 // Default Tasks
 gulp.task( 'default', gulp.parallel( 'browser-sync', 'watch' ) );
