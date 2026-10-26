@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/hametuha/hametuha-cf#readme",
   "devDependencies": {
-    "browser-sync": "^2.11",
-    "gulp": "^4.0",
+    "browser-sync": "^3.0",
+    "gulp": "^5.0",
     "gulp-load-plugins": "^2.0",
-    "gulp-pug": "^4.0.1",
-    "sass": "^1.93.2"
+    "gulp-pug": "^5.0.0",
+    "sass": "^1.105.2"
   },
   "engines": {
     "node": ">=24.22.1"
