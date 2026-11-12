@@ -3,6 +3,10 @@ name: Build & Deploy
 on:
   push:
     branches: [ master ]
+    # デプロイと Cloudflare の再取得は assets/ が変わったときだけ。
+    # それ以外（依存・gulpfile など）を反映したいときは workflow_dispatch で手動実行する。
+    paths:
+      - 'assets/**'
   pull_request:
   workflow_dispatch:
 

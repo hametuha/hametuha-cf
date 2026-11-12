@@ -19,7 +19,7 @@ Images in `assets/img` are copied to `docs/img` as-is. Compress an image once wh
 
 ## Deploy
 
-Merging into `master` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+Merging changes under `assets/` into `master` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
 
 1. **build**: `npm run build` (also runs on pull requests)
 2. **deploy**: publishes `docs/` to GitHub Pages (`https://hametuha.github.io/hametuha-cf/`)
@@ -32,7 +32,7 @@ Required repository secrets:
 | `CLOUDFLARE_API_TOKEN` | API token with *Zone › Custom Pages › Edit* on hametuha.com |
 | `CLOUDFLARE_ZONE_ID` | Zone ID of hametuha.com |
 
-To refresh manually, run the workflow from the Actions tab (`workflow_dispatch`), or locally:
+Changes outside `assets/` (dependencies, `gulpfile.js`, etc.) are not deployed automatically. To deploy and refresh manually, run the workflow from the Actions tab (`workflow_dispatch`). To only make Cloudflare re-fetch the pages currently on GitHub Pages, run locally:
 
 ```bash
 npm run build
