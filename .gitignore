@@ -1,2 +1,4 @@
 node_modules
 .envrc
+# Build output (deployed by GitHub Actions)
+docs
